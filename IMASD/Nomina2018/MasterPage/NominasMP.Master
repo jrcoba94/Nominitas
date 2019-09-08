@@ -1,0 +1,140 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NominasMP.master.cs" Inherits="Nomina2018.MasterPage.NominasMP" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link href="../Content/sb-admin-2.css" rel="stylesheet" />
+    <link href="../Content/Custom.css" rel="stylesheet" />
+
+    <script src="../Scripts/js/jquery-3.3.1.min.js"></script>
+</head>
+<body id="page-top" class="scrollbar-3">
+    <div id="wrapper">
+        <header>
+            <ul class="navbar-nav sticky-top bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+                <hr class="sidebar-divider my-0" />
+
+                <li class="nav-item"><a class="nav-link" href="/GUI/Inicio"><i class="fa fa-fw fa-home"></i><span>Inicio</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="/GUI/Empleados"><i class="fa fa-fw fa-address-book"></i><span>Empleados</span></a></li>
+                <li class="nav-item"><a class="nav-link"><i class="fa fa-fw fa-address-book"></i><span>Contacto</span></a></li>
+
+                <hr class="sidebar-divider d-none d-md-block" />
+
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0 " id="sidebarToggle">
+                    </button>
+                </div>
+            </ul>
+        </header>
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <ul class="navbar-nav ml-auto">
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuario@gmail.com</span>
+                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <form runat="server">
+                                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                                </asp:ContentPlaceHolder>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="../Scripts/js/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/js/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/js/jquery.min.js"></script>
+    <script src="../Scripts/js/jquery.easing.min.js"></script>
+    <script src="../Scripts/js/sb-admin-2.min.js"></script>
+</body>
+</html>
