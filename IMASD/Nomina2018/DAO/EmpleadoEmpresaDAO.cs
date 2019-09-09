@@ -1,10 +1,6 @@
 ﻿using Nomina2018.BO;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace Nomina2018.DAO
 {

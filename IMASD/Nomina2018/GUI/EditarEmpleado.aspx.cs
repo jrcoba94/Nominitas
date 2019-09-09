@@ -74,7 +74,8 @@ namespace Nomina2018.GUI
             dpDepartamento.DataSource = empleadoEmpresaSRV.GetDepartamento();
             dpDepartamento.DataBind();
 
-            dpPuesto.DataSource = empleadoEmpresaSRV.GetPuesto();
+            PuestoBO puestoBO = new PuestoBO();
+            dpPuesto.DataSource = empleadoEmpresaSRV.GetPuesto(puestoBO);
             dpPuesto.DataBind();
         }
 

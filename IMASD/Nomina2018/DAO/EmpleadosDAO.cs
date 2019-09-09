@@ -1,7 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using Nomina2018.BO;
-using System;
 
 namespace Nomina2018.DAO
 {
@@ -149,16 +148,12 @@ namespace Nomina2018.DAO
                 {
                     if (data.Nombreempleado != null)
                     {
-
-                        cadenaWhere = cadenaWhere + " nombreempleado=@NombreEmpleado and";
-                        command.Parameters.Add("@NombreEmpleado", SqlDbType.VarChar);
-                        command.Parameters["@NombreEmpleado"].Value = data.Nombreempleado;
+                        cadenaWhere = cadenaWhere + " nombreempleado like '" + data.Nombreempleado + "%' or";
                         edo = true;
                     }
 
                     if (data.Apellidomaterno != null)
                     {
-
                         cadenaWhere = cadenaWhere + " apellidomaterno=@ApellidoMaterno and";
                         command.Parameters.Add("@ApellidoMaterno", SqlDbType.VarChar);
                         command.Parameters["@ApellidoMaterno"].Value = data.Apellidomaterno;
@@ -167,7 +162,6 @@ namespace Nomina2018.DAO
 
                     if (data.Apellidopaterno != null)
                     {
-
                         cadenaWhere = cadenaWhere + " apellidopaterno=@ApellidoPaterno and";
                         command.Parameters.Add("@ApellidoPaterno", SqlDbType.VarChar);
                         command.Parameters["@ApellidoPaterno"].Value = data.Apellidopaterno;
@@ -176,10 +170,7 @@ namespace Nomina2018.DAO
 
                     if (data.Nombredepartamento != null)
                     {
-
-                        cadenaWhere = cadenaWhere + " nombredepartamento=@NombreDepartamento and";
-                        command.Parameters.Add("@NombreDepartamento", SqlDbType.VarChar);
-                        command.Parameters["@NombreDepartamento"].Value = data.Nombredepartamento;
+                        cadenaWhere = cadenaWhere + " nombredepartamento like '" + data.Nombredepartamento + "%' or";
                         edo = true;
                     }
 
@@ -188,7 +179,7 @@ namespace Nomina2018.DAO
                         cadenaWhere = " WHERE " + cadenaWhere.Remove(cadenaWhere.Length - 3, 3);
                     }
 
-                    command.CommandText = " SELECT * FROM vwEmpleadoEmpresa " + cadenaWhere;
+                    command.CommandText = " SELECT * FROM vwEmpleadoEmpresa " + cadenaWhere + " and NOT EXISTS (SELECT *   FROM   vwNominas   WHERE  vwNominas.nombreempleado = vwEmpleadoEmpresa.nombreempleado)";
                     transaction.Commit();
 
                     adapter.SelectCommand = command;
@@ -264,7 +255,7 @@ namespace Nomina2018.DAO
                         command.Parameters["@ApellidoPaterno"].Value = data.Apellidopaterno;
                         edo = true;
                     }
-                                        
+
                     if (edo == true)
                     {
                         cadenaWhere = " WHERE " + cadenaWhere.Remove(cadenaWhere.Length - 3, 3);

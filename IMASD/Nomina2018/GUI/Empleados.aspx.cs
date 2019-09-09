@@ -69,5 +69,33 @@ namespace Nomina2018.GUI
         {
 
         }
+
+        protected void txtDepartamento_OnTextChanged(object sender, EventArgs e)
+        {
+            if(txtBuscar.ToString().Length > 0)
+            {
+                ModelEpleadoEmpresa mdEmpleado = new ModelEpleadoEmpresa();
+                mdEmpleado.Nombredepartamento = txtBuscar.Value.ToString();
+
+                try
+                {
+                    DataTable dataTable = empleadoSRV.ObtenerEmpleados(mdEmpleado).Tables[0];
+                    
+                    if (dataTable.Rows.Count != 0)
+                    {
+                        gvEmpleados.DataSource = dataTable;
+                        gvEmpleados.DataBind();
+                    }
+                    else
+                    {
+                        DataBinderEmpleados();
+                    }
+                }
+                catch (Exception)
+                {
+                    Response.Redirect("../GUI/Empleados.aspx");
+                }
+            }
+        }
     }
 }

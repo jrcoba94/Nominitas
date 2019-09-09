@@ -46,9 +46,9 @@ namespace Nomina2018.Servicios
             return departamentos.GetDepartamentos();
         }
 
-        public DataSet GetPuesto()
+        public DataSet GetPuesto(object obj)
         {
-            return puestos.GetPuestos();
+            return puestos.GetPuestos(obj);
         }
     }
 }

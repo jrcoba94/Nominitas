@@ -6,11 +6,22 @@
             <a class="btn btn-success btn-sm col-1" href="AgregarEmpleado.aspx">Añadir</a>
         </div>
         <div class="card card-body col-12">
+            <div class="form-row">
+                <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                        <input runat="server" id="txtBuscar" class="form-control form-control-sm" placeholder="Buscar"/>
+                        <button runat="server" type="button" class="btn btn-primary btn-sm input-group-prepend" onserverclick="txtDepartamento_OnTextChanged">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <asp:GridView ID="gvEmpleados" HorizontalAlign="Justify" runat="server" class="table table-responsive-md table-striped table-bordered table-hover table-sm" AutoGenerateColumns="false" Width="505px" GridLines="None" DataKeyNames="empleadoID" OnRowCommand="gvEmpleados_OnRowCommand" OnSelectedIndexChanged="gvEmpleados_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
 
-                    <asp:ButtonField ButtonType="Image" ImageUrl="~/Content/icons/pencil (6).png" ControlStyle-Height="32" ControlStyle-Width="32" Text="Editar" CommandName="Editar" CausesValidation="false"/>
+                    <asp:ButtonField ButtonType="Image" ImageUrl="~/Content/icons/pencil (6).png" ControlStyle-Height="32" ControlStyle-Width="32" Text="Editar" CommandName="Editar" CausesValidation="false" />
                     <asp:ButtonField ButtonType="Image" ImageUrl="~/Content/icons/garbage (6).png" ControlStyle-Height="32" ControlStyle-Width="32" Text="Eliminar" CommandName="Eliminar" CausesValidation="false" />
 
                     <asp:BoundField DataField="Numeroempleado" HeaderText="DNI"></asp:BoundField>

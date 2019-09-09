@@ -20,9 +20,10 @@
             <ul class="navbar-nav sticky-top bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
                 <hr class="sidebar-divider my-0" />
 
-                <li class="nav-item"><a class="nav-link" href="/GUI/Inicio"><i class="fa fa-fw fa-home"></i><span>Inicio</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="/GUI/Empleados"><i class="fa fa-fw fa-address-book"></i><span>Empleados</span></a></li>
-                <li class="nav-item"><a class="nav-link"><i class="fa fa-fw fa-address-book"></i><span>Contacto</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../GUI/Inicio.aspx"><i class="fa fa-fw fa-home"></i><span>Inicio</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../GUI/Sueldos.aspx"><i class="fa fa-fw fa-money-bill"></i><span>Sueldos</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../GUI/Empleados.aspx"><i class="fa fa-fw fa-address-book"></i><span>Empleados</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../GUI/Nominas.aspx"><i class="fa fa-fw fas fa-archive"></i><span>Nominas</span></a></li>
 
                 <hr class="sidebar-divider d-none d-md-block" />
 
